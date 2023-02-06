@@ -1,0 +1,276 @@
+-- Script Library Loader
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+-- Loaded Notification
+
+OrionLib:MakeNotification({
+	Name = "Script Loaded!",
+	Content = "Script Paradise Has Loaded Version: 1.0",
+	Image = "rbxassetid://10450168793",
+	Time = 8
+})
+
+local Window = OrionLib:MakeWindow({Name = "Script Paradise V1.0", HidePremium = false, SaveConfig = false, ConfigFolder = "Scripters Paradise Saves"})
+
+-- Home Tab [Random Scripts]
+
+local Home = Window:MakeTab({
+	Name = "Home",
+	Icon = "rbxassetid://11347112400",
+	PremiumOnly = false
+})
+
+-- Script Hub
+local Scripts = Window:MakeTab({
+	Name = "Script Hub",
+	Icon = "rbxassetid://7129850222",
+	PremiumOnly = false
+})
+
+-- Game Changer Tab
+
+local bta = Window:MakeTab({
+	Name = "Game Changer",
+	Icon = "rbxassetid://6723742952",
+	PremiumOnly = false
+})
+
+bta:AddDropdown({
+	Name = "Game Changer",
+	Default = "",
+	Options = {"Arsenal", "Rate My Avatar", "RoBowling", "Roblox Talent Show"},
+	Callback = function(val)
+		if val == "Arsenal" then
+			game:GetService("TeleportService"):Teleport(286090429)
+		elseif val == "Rate My Avatar" then
+			game:GetService("TeleportService"):Teleport(6708206173)
+		elseif val == "RoBowling" then
+			game:GetService("TeleportService"):Teleport(340227283)
+		elseif val == "Roblox Talent Show" then
+			game:GetService("TeleportService"):Teleport(10851599)
+		end
+	end
+})
+
+-- Arsenal Script Hub
+
+if game.PlaceId == 286090429 then
+	local Arsenal = Window:MakeTab({
+		Name = "Arsenal Scripts",
+		Icon = "rbxassetid://7699371504",
+		PremiumOnly = false
+	})
+
+	Arsenal:AddButton({
+		Name = "OWL HUB",
+		Callback = function()
+			OrionLib:MakeNotification({
+				Name = "Script Ran!",
+				Content = "OWL HUB has been ran",
+				Image = "rbxassetid://6646175684",
+				Time = 5
+			})
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();
+		end    
+	})
+
+	Arsenal:AddButton({
+		Name = "StormWare L I T E",
+		Callback = function()
+			OrionLib:MakeNotification({
+				Name = "Script Ran!",
+				Content = "StormWare L I T E has been ran",
+				Image = "rbxassetid://6646175684",
+				Time = 5
+			})
+			_G.lockMeth = "Random" -- Change to head if you want your silent aim to ONLY aim at the head.
+
+			_G.silMeth = "FPORWIL" -- Silent Aim Method, You're gonna have to play around with it. The Default one is FindPartOnRayWithIgnoreList but shortened. 
+
+			_G.AntiFly = false -- Change if the game you're playing has an Anti-Fly. Set it to false, if it has, set it to true, if it doesn't.
+
+			_G.Keystrokes = true -- If you want sexy keystrokes, turn it on.
+
+			_G.HideOverlay = false -- If you want the StormWare Watermark along with the features you've toggled shown, set it to true, not recommended for closet cheating.
+
+
+
+			local g = game:HttpGet("https://raw.githubusercontent.com/Storm99999/whitelistkeys/main/lite/sw.lite.lua")
+
+			loadstring(g:reverse())()
+
+			task.wait(2)
+
+			if _G.HideOverlay == true then
+
+				game.CoreGui["StormWare LITE"].modules.Visible = false
+
+			end
+
+			game.CoreGui["StormWare LITE"].keystrokes.space.Text = "━━━━━"
+		end    
+	})
+
+end
+
+-- Roblox Talent Show Script Hub
+
+if game.PlaceId == 10851599 then
+	local RGT = Window:MakeTab({
+		Name = "RTS",
+		Icon = "rbxassetid://4280806653",
+		PremiumOnly = false
+	})
+	
+	RGT:AddButton({
+		Name = "Midi Player",
+		Callback = function()
+			OrionLib:MakeNotification({
+				Name = "Script Ran!",
+				Content = "Midi Player has been ran",
+				Image = "rbxassetid://6646175684",
+				Time = 5
+			})
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/nickcrump28/Krystal/main/Main"))();
+		end    
+	})
+	
+end
+
+-- Rate My Avatar Script Hub 
+
+if game.PlaceId == 6708206173 then
+	local RMA = Window:MakeTab({
+		Name = "Rate Me",
+		Icon = "rbxassetid://12402187937",
+		PremiumOnly = false
+	})
+	
+	RMA:AddButton({
+		Name = "Krystle Dancer",
+		Callback = function()
+			OrionLib:MakeNotification({
+				Name = "Script Ran!",
+				Content = "Krystle Dancer has been ran",
+				Image = "rbxassetid://6646175684",
+				Time = 5
+			})
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/nickcrump28/Krystle/main/Main", true))()
+		end    
+	})
+	
+end
+-- Information Tab
+
+local Info = Window:MakeTab({
+	Name = "Information",
+	Icon = "rbxassetid://4871684504",
+	PremiumOnly = false
+})
+
+local UpdateLog = Window:MakeTab({
+	Name = "Update Logs",
+	Icon = "rbxassetid://7546954294",
+	PremiumOnly = false
+})
+
+-- Home Tab
+
+Home:AddSlider({
+	Name = "Walk Speed Changer",
+	Min = 16,
+	Max = 150,
+	Default = 16,
+	Color = Color3.fromRGB(255, 0, 0),
+	Increment = 1,
+	ValueName = "",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end    
+})
+
+Home:AddSlider({
+	Name = "Jump Power Changer",
+	Min = 50,
+	Max = 500,
+	Default = 50,
+	Color = Color3.fromRGB(255, 0, 0),
+	Increment = 1,
+	ValueName = "",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end    
+})
+
+-- Script Hub
+
+Scripts:AddButton({
+	Name = "RoBowling Script",
+	Callback = function()
+		OrionLib:MakeNotification({
+			Name = "Script Ran!",
+			Content = "RoBowling Script has been ran press 'q' for script to work",
+			Image = "rbxassetid://6646175684",
+			Time = 10
+		})
+		loadstring(game:HttpGet"https://pastebin.com/raw/dugDxkrn",true)()
+	end    
+})
+
+Scripts:AddButton({
+	Name = "Universal ESP",
+	Callback = function()
+		OrionLib:MakeNotification({
+			Name = "Script Ran!",
+			Content = "Universal ESP has been ran",
+			Image = "rbxassetid://6646175684",
+			Time = 5
+		})
+		local Players = game:GetService("Players")
+		local RunService = game:GetService("RunService")
+		local Highlight = Instance.new("Highlight")
+		Highlight.Name = "Highlight"
+		function ApplyToCurrentPlayers()
+			for i,player in pairs(Players:GetChildren()) do 
+				repeat wait() until player.Character
+				if not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+					local HighlightClone = Highlight:Clone()
+					HighlightClone.Adornee = player.Character
+					HighlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
+					HighlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+					HighlightClone.Name = "Highlight"
+				end
+			end
+		end    
+		RunService.Heartbeat:Connect(function()
+			ApplyToCurrentPlayers()
+		end)
+	end    
+})
+
+-- Information Tab
+
+Info:AddLabel("Creator: SimplyHere#1337") -- Shows My Discord
+
+Info:AddLabel("Version: 1.0") -- Shows GUI Version
+
+Info:AddParagraph("Script Paraidse Information","Script Paradise was a solo project I made for myself to get back into scripting if you would like anything added to the Script Hub you can contact me on discord - SimplyHere#1337")
+
+Info:AddButton({
+	Name = "Discord!",
+	Callback = function()
+		OrionLib:MakeNotification({
+			Name = "Discord Invite Listed Below!",
+			Content = "Discord invite https://discord.gg/HWnaBhEvtc",
+			Image = "rbxassetid://12397157735",
+			Time = 8
+		})
+	end    
+})
+
+-- update log tab
+
+UpdateLog:AddLabel("Update Log's")
+
+UpdateLog:AddParagraph("Version 1.0","Added Script hub, Game Changer, Custom loading scripts for games like arsenal and Roblox Talent Show, Created a Invite link for discord server, Made a custom ESP mod for games Broken for Arsenal")
